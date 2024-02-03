@@ -35,7 +35,7 @@ public class Controller {
 
     @PostMapping(value = "newEntry", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Shoppinglist> postEntry(@RequestBody Shoppinglist entry) {
-        Shoppinglist _shoppinglist = repository.save(new Shoppinglist(entry.getProduct(), entry.getWeekday(), entry.getIsDone()));
+        Shoppinglist _shoppinglist = repository.save(new Shoppinglist(entry.getProduct(), entry.getWeekday()));
         return new ResponseEntity<>(_shoppinglist, HttpStatus.CREATED);
     }
 
@@ -60,16 +60,5 @@ public class Controller {
         }
     }
 
-    @PutMapping("/shoppinglist/patch/{id}")
-    public ResponseEntity<Shoppinglist> updateIsDone(@PathVariable("id") long id) {
-        Optional<Shoppinglist> entryData = repository.findById(id);
 
-        if (entryData.isPresent()) {
-            Shoppinglist _entry = entryData.get();
-            _entry.setIsDone(true);
-            return new ResponseEntity<>(repository.save(_entry), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 }

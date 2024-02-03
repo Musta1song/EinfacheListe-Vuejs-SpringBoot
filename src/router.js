@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
-import EinfacheListe from './components/EinfacheListe.vue';
+import SimpleList from './components/SimpleList.vue'
 import addEntry from './components/addEntry.vue';
 
 const routes =  [
@@ -7,7 +7,7 @@ const routes =  [
     path: "/",
     alias: "/shoppinglist",
     name: "shoppinglist",
-    component: EinfacheListe
+    component: SimpleList
   },
 
   {

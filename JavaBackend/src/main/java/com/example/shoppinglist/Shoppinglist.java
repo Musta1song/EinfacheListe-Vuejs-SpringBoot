@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "ShoppingListTable")
+@Table(name = "VueShoppinglist")
 public class Shoppinglist {
 
     @Id
@@ -22,15 +22,10 @@ public class Shoppinglist {
     @Column(name = "weekday")
     private String weekday;
 
-    @Column(name = "isDone")
-    private boolean isDone;
-
-
-    public Shoppinglist(String product,String weekday, Boolean isDone) {
+    public Shoppinglist(String product,String weekday) {
         super();
         this.product = product;
         this.weekday = weekday;
-        this.isDone = isDone;
     }
 
     public long getId() {
@@ -52,12 +47,7 @@ public class Shoppinglist {
     public void setWeekday(String weekday) {
         this.weekday = weekday;
     }
-    public Boolean getIsDone(){
-        return isDone;
-    }
-    public void setIsDone(Boolean isDone){
-        this.isDone = isDone;
-    }
+   
     public Shoppinglist(){}
 
 

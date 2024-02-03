@@ -1,24 +1,14 @@
 <template>
-  <div class="addentryform">
+  <v-sheet width="300" class="mx-auto">
 
-    <label for="text">Produkt:</label><br>
-    <input type="text" name="product" id="text" v-model="list.product"><br>
+    <v-form ref="form">
+      <v-text-field v-model="list.product" label="Produkt" required></v-text-field>
 
-    <label for="weekday">Wochentag:</label><br>
+      <v-select v-model="list.weekday" :items="weekdays" label="Wochentag" required></v-select>
 
-    <select v-model="list.weekday" name="weekday" id="weekday">
-      <option value="Montag">Montag</option>
-      <option value="Dienstag">Dienstag</option>
-      <option value="Mittwoch">Mittwoch</option>
-      <option value="Donnerstag">Donnerstag</option>
-      <option value="Freitag">Freitag</option>
-      <option value="Samstag">Samstag</option>
-    </select>
-
-    <br>
-
-    <button v-on:click="createEntry();">Eintrag Erstellen</button>
-  </div>
+      <v-btn @click="createEntry();">Eintrag Erstellen</v-btn>
+    </v-form>
+  </v-sheet>
 </template>
 <style  scoped>
 .addentryform {
@@ -58,7 +48,17 @@ export default {
       list: {
         product: "",
         weekday: "",
-      }
+      },
+      weekdays: [
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+        "Sonntag"
+
+      ]
     };
   },
   methods: {
