@@ -75,6 +75,7 @@ export default {
             this.list.id = response.data.id;
             console.log(response.data);
             this.submitted = true;
+            window.location.reload()
           })
           .catch(e => {
             console.log(e);
