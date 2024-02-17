@@ -2,6 +2,8 @@
   <v-sheet width="300" class="mx-auto">
 
     <v-form ref="form">
+    
+<v-label>Neuer Eintrag:</v-label>
       <v-text-field v-model="list.product" label="Produkt" required></v-text-field>
 
       <v-select v-model="list.weekday" :items="weekdays" label="Wochentag" required></v-select>
@@ -11,26 +13,16 @@
   </v-sheet>
 </template>
 <style  scoped>
-.addentryform {
-  display: flexbox;
-}
-
-input,
-select {
-  width: 170px;
-  height: 25px;
-}
-
-label {
-  font-size: 26px;
-  margin-top: 10px;
+.v-form {
+  margin-top: 20px;
 
 }
-
-select {
-  width: 140px;
-  height: 20px;
+.v-label{
+  margin-bottom: 20px;
+  font-size: 30px;
 }
+
+
 
 button {
   margin-top: 20px;
