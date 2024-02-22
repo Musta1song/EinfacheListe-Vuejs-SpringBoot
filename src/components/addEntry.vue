@@ -2,8 +2,8 @@
   <v-sheet width="300" class="mx-auto">
 
     <v-form ref="form">
-    
-<v-label>Neuer Eintrag:</v-label>
+
+      <v-label>Neuer Eintrag:</v-label>
       <v-text-field v-model="list.product" label="Produkt" required></v-text-field>
 
       <v-select v-model="list.weekday" :items="weekdays" label="Wochentag" required></v-select>
@@ -17,7 +17,8 @@
   margin-top: 20px;
 
 }
-.v-label{
+
+.v-label {
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -49,7 +50,6 @@ export default {
         "Freitag",
         "Samstag",
         "Sonntag"
-
       ]
     };
   },
@@ -72,9 +72,11 @@ export default {
           .catch(e => {
             console.log(e);
           });
-      } else if (this.list.weekday == "") {
-        alert("Wählen Sie einen Wochentag aus.")
-      } else if (this.list.product == "") {
+        return
+      }
+      alert("Wählen Sie einen Wochentag aus.")
+
+      if (this.list.product == "") {
         alert("Geben Sie ein Produkt an.")
       }
     },
